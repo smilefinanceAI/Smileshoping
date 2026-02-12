@@ -3,121 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smile Shopping - Best Offers & Cashback</title>
+    <title>Smile Shopping - Mega Deals & Cashback</title>
+    <meta name="keywords" content="Amazon Deals, Best Laptop, Clothes, Shoes, Mobile Offers, Smile Shopping, Mohammad Aarif, Cashback, Finance">
+    
     <style>
-        :root { --amazon-orange: #FF9900; --smile-blue: #003366; --light-gray: #f3f3f3; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: var(--light-gray); padding-bottom: 70px; }
+        :root { --primary: #003366; --amazon: #FF9900; --bg: #f1f2f4; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--bg); padding-bottom: 80px; }
         
-        /* Sticky Top Header */
-        .top-nav { background: var(--smile-blue); color: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .top-nav h1 { margin: 0; font-size: 22px; }
+        /* Professional Top Bar */
+        header { background: var(--primary); color: white; padding: 10px; position: sticky; top: 0; z-index: 1000; }
+        .search-container { background: white; border-radius: 5px; display: flex; padding: 5px; margin-top: 10px; }
+        .search-container input { border: none; flex: 1; padding: 8px; outline: none; font-size: 16px; }
+        
+        /* Moving Offer Ticker */
+        .ticker { background: #fff3cd; color: #856404; padding: 5px; font-weight: bold; font-size: 14px; text-align: center; }
 
-        /* Offer Slider Placeholder */
-        .promo-banner { background: linear-gradient(45deg, #ff9900, #ffcc00); color: #000; padding: 20px; text-align: center; font-weight: bold; font-size: 18px; margin: 10px; border-radius: 10px; border: 2px dashed #fff; }
+        /* Categories Bar */
+        .cat-bar { display: flex; overflow-x: auto; background: white; padding: 15px; gap: 20px; border-bottom: 1px solid #ddd; }
+        .cat-item { text-align: center; font-size: 12px; min-width: 60px; font-weight: bold; }
+        .cat-icon { width: 50px; height: 50px; background: #eee; border-radius: 50%; margin: auto; display: flex; align-items: center; justify-content: center; font-size: 24px; }
 
         .container { padding: 10px; }
 
-        /* Category Title */
-        .section-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 5px; color: var(--smile-blue); }
-        .section-header h2 { font-size: 20px; margin: 0; }
+        /* Banner Card */
+        .hero-banner { background: linear-gradient(to right, #003366, #0055aa); color: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .hero-banner h2 { margin: 0; font-size: 26px; }
 
-        /* Product Grid (Phone Size Optimized) */
-        .product-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px; }
-        .product-card { background: white; border-radius: 8px; padding: 10px; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .discount-tag { position: absolute; top: 5px; left: 5px; background: #cc0000; color: white; font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
-        .product-card img { width: 100%; height: 140px; object-fit: contain; }
-        .product-card h3 { font-size: 14px; margin: 10px 0 5px; height: 35px; overflow: hidden; color: #333; }
-        .price { font-size: 18px; font-weight: bold; color: #b12704; }
-        .cashback { font-size: 12px; color: green; font-weight: bold; }
+        /* Product Section */
+        .section-title { font-size: 22px; font-weight: bold; padding: 15px 5px; color: var(--primary); display: flex; justify-content: space-between; }
+        
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .p-card { background: white; border-radius: 10px; padding: 12px; position: relative; border: 1px solid #e0e0e0; }
+        .p-card img { width: 100%; height: 150px; object-fit: contain; }
+        .off-tag { position: absolute; top: 8px; left: 8px; background: #cc0000; color: white; font-size: 11px; font-weight: bold; padding: 3px 7px; border-radius: 4px; }
+        .p-card h3 { font-size: 15px; margin: 10px 0; height: 40px; overflow: hidden; color: #333; }
+        .price-box { display: flex; align-items: center; gap: 8px; }
+        .new-price { font-size: 20px; font-weight: bold; color: #b12704; }
+        .old-price { font-size: 14px; text-decoration: line-through; color: #777; }
+        
+        .cashback-badge { color: green; font-weight: bold; font-size: 13px; margin: 5px 0; }
 
-        /* Refer & Earn Banner */
-        .refer-box { background: #fff; border: 2px solid var(--smile-blue); border-radius: 10px; padding: 20px; text-align: center; margin: 20px 0; }
-        .refer-box h3 { color: var(--smile-blue); margin-top: 0; }
+        .add-btn { background: var(--amazon); color: black; text-decoration: none; display: block; text-align: center; padding: 10px; border-radius: 25px; font-weight: bold; margin-top: 10px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
-        /* Buy Button */
-        .buy-btn { background: var(--amazon-orange); color: black; text-align: center; display: block; padding: 8px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 14px; margin-top: 10px; }
+        /* Gromo Refer Banner */
+        .refer-earn { background: #fff; border-left: 5px solid var(--amazon); padding: 20px; margin: 25px 0; border-radius: 8px; }
 
-        /* Bottom Sticky Menu */
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #ddd; z-index: 1000; }
-        .nav-item { text-align: center; font-size: 12px; text-decoration: none; color: #666; }
+        /* Bottom Menu */
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 12px 0; border-top: 2px solid #eee; }
+        .nav-link { text-decoration: none; color: #555; font-size: 12px; text-align: center; }
     </style>
 </head>
 <body>
 
-<div class="top-nav">
-    <h1>SMILE SHOPPING</h1>
-</div>
+<header>
+    <div style="font-size: 20px; font-weight: bold;">SMILE SHOPPING</div>
+    <div class="search-container">
+        <input type="text" placeholder="Search clothes, mobiles, shoes...">
+        <button style="border:none; background:none; font-size:20px;">🔍</button>
+    </div>
+</header>
 
-<div class="promo-banner">
-    🔥 AAJ KA OFFER: 80% Tak Discount + Extra Cashback! 🔥<br>
-    <span style="font-size: 14px;">Shop via Mohammad Aarif's Store</span>
+<div class="ticker">🚀 Flash Sale Live: Extra 10% Cashback on All Orders! 🚀</div>
+
+<div class="cat-bar">
+    <div class="cat-item"><div class="cat-icon">📱</div>Gadgets</div>
+    <div class="cat-item"><div class="cat-icon">👕</div>Fashion</div>
+    <div class="cat-item"><div class="cat-icon">👟</div>Shoes</div>
+    <div class="cat-item"><div class="cat-icon">🏠</div>Home</div>
+    <div class="cat-item"><div class="cat-icon">💰</div>Loans</div>
 </div>
 
 <div class="container">
     
-    <div class="section-header">
-        <h2>Gadgets & Electronics</h2>
-        <a href="https://www.amazon.in/s?k=electronics&tag=smileai24-21" style="font-size: 12px; color: var(--amazon-orange);">View All</a>
-    </div>
-    <div class="product-list">
-        <div class="product-card">
-            <span class="discount-tag">60% OFF</span>
-            <img src="https://m.media-amazon.com/images/I/61mNn9kC6GL._AC_UL320_.jpg" alt="Gadget">
-            <h3>Premium 5G Smartphone</h3>
-            <div class="price">₹14,999</div>
-            <div class="cashback">₹500 Smile Cashback</div>
-            <a href="https://www.amazon.in/s?k=5g+phone&tag=smileai24-21" class="buy-btn">Add to Cart</a>
-        </div>
-        <div class="product-card">
-            <span class="discount-tag">45% OFF</span>
-            <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_UY218_.jpg" alt="Laptop">
-            <h3>Fast Business Laptop</h3>
-            <div class="price">₹32,990</div>
-            <div class="cashback">₹1000 Smile Cashback</div>
-            <a href="https://www.amazon.in/s?k=laptop&tag=smileai24-21" class="buy-btn">Add to Cart</a>
-        </div>
-    </div>
-
-    <div class="refer-box">
-        <h3>Refer & Earn Program 💸</h3>
-        <p>Apne doston ko Loan dilwayein aur ghar baithe ₹50,000 mahina kamayein!</p>
-        <a href="https://sales.gromo.in/gp-website/g/N736Ris-PUn_TvhMN1PlZ" style="color: white; background: var(--smile-blue); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">Join Now (Free)</a>
+    <div class="hero-banner">
+        <h2>Big Savings Day!</h2>
+        <p>Curated Deals by Mohammad Aarif</p>
+        <small>Amazon Authorized Partner</small>
     </div>
 
     <div class="section-header">
-        <h2>Fashion & Shoes</h2>
+        <span class="section-title">Latest Electronics</span>
     </div>
-    <div class="product-list">
-        <div class="product-card">
-            <span class="discount-tag">70% OFF</span>
-            <img src="https://m.media-amazon.com/images/I/71oX6uX5XvL._AC_UL320_.jpg" alt="Shoes">
-            <h3>Sports Running Shoes</h3>
-            <div class="price">₹899</div>
-            <a href="https://www.amazon.in/s?k=shoes&tag=smileai24-21" class="buy-btn">View Offer</a>
+    <div class="product-grid">
+        <div class="p-card">
+            <span class="off-tag">40% OFF</span>
+            <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_UY218_.jpg">
+            <h3>Premium Business Laptop</h3>
+            <div class="price-box">
+                <span class="new-price">₹35,990</span>
+                <span class="old-price">₹52,000</span>
+            </div>
+            <div class="cashback-badge">₹1000 Extra Cashback</div>
+            <a href="https://www.amazon.in/s?k=laptop&tag=smileai24-21" class="add-btn">Add to Cart</a>
         </div>
-        <div class="product-card">
-            <span class="discount-tag">50% OFF</span>
-            <img src="https://m.media-amazon.com/images/I/71-3mX5l2AL._AC_UL320_.jpg" alt="Watch">
-            <h3>Premium Men's Watch</h3>
-            <div class="price">₹1,499</div>
-            <a href="https://www.amazon.in/s?k=mens+watch&tag=smileai24-21" class="buy-btn">View Offer</a>
+        <div class="p-card">
+            <span class="off-tag">25% OFF</span>
+            <img src="https://m.media-amazon.com/images/I/716fAVS39LL._AC_UY218_.jpg">
+            <h3>5G Power Smartphone</h3>
+            <div class="price-box">
+                <span class="new-price">₹18,499</span>
+                <span class="old-price">₹24,000</span>
+            </div>
+            <div class="cashback-badge">₹500 Extra Cashback</div>
+            <a href="https://www.amazon.in/s?k=5g+mobile&tag=smileai24-21" class="add-btn">Add to Cart</a>
         </div>
     </div>
 
-    <h2 class="section-header">Special Offers</h2>
-    <div class="product-card" style="margin-bottom: 20px;">
-        <img src="https://m.media-amazon.com/images/I/61-v8f9-46L._AC_UL320_.jpg" style="height: 100px;">
-        <h3>Winter Collection & Clothing</h3>
-        <a href="https://www.amazon.in/s?k=clothing&tag=smileai24-21" class="buy-btn">Explore Fashion</a>
+    <div class="refer-earn">
+        <h3 style="margin:0; color:var(--primary);">Refer & Earn ₹50,000/Month 💸</h3>
+        <p style="font-size:14px; color:#666;">Apne doston ko Smile Finance se Loan dilwayein aur commission payein.</p>
+        <a href="https://sales.gromo.in/gp-website/g/N736Ris-PUn_TvhMN1PlZ" style="color:var(--primary); font-weight:bold; text-decoration:none;">Join Partner Program →</a>
+    </div>
+
+    <div class="section-header">
+        <span class="section-title">Fashion & Lifestyle</span>
+    </div>
+    <div class="product-grid">
+        <div class="p-card">
+            <span class="off-tag">70% OFF</span>
+            <img src="https://m.media-amazon.com/images/I/71oX6uX5XvL._AC_UL320_.jpg">
+            <h3>Branded Sports Shoes</h3>
+            <div class="price-box">
+                <span class="new-price">₹1,299</span>
+                <span class="old-price">₹3,999</span>
+            </div>
+            <a href="https://www.amazon.in/s?k=mens+shoes&tag=smileai24-21" class="add-btn">View Offer</a>
+        </div>
+        <div class="p-card">
+            <span class="off-tag">55% OFF</span>
+            <img src="https://m.media-amazon.com/images/I/61-v8f9-46L._AC_UL320_.jpg">
+            <h3>Premium Men's Wear</h3>
+            <div class="price-box">
+                <span class="new-price">₹799</span>
+                <span class="old-price">₹1,599</span>
+            </div>
+            <a href="https://www.amazon.in/s?k=mens+clothing&tag=smileai24-21" class="add-btn">View Offer</a>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <span class="section-title">New Arrivals</span>
+    </div>
+    <div class="p-card" style="width:100%; margin-bottom:20px;">
+        <img src="https://m.media-amazon.com/images/I/61O5X96S7sL._AC_UY218_.jpg" style="height:120px;">
+        <h3 style="text-align:center;">Smart Gadgets & Accessories</h3>
+        <a href="https://www.amazon.in/s?k=smart+gadgets&tag=smileai24-21" class="add-btn">Shop All Gadgets</a>
     </div>
 
 </div>
 
 <div class="bottom-nav">
-    <a href="#" class="nav-item">🏠<br>Home</a>
-    <a href="https://sales.gromo.in/gp-website/g/N736Ris-PUn_TvhMN1PlZ" class="nav-item">💰<br>Loans</a>
-    <a href="https://www.amazon.in/s?k=deals&tag=smileai24-21" class="nav-item">🛍️<br>Shop</a>
-    <a href="#" class="nav-item">👤<br>Account</a>
+    <a href="#" class="nav-link">🏠<br>Home</a>
+    <a href="https://sales.gromo.in/gp-website/g/N736Ris-PUn_TvhMN1PlZ" class="nav-link">💰<br>Loans</a>
+    <a href="https://www.amazon.in/s?k=best+offers&tag=smileai24-21" class="nav-link">🛍️<br>Shop</a>
+    <a href="#" class="nav-link">👤<br>Account</a>
 </div>
 
 </body>
