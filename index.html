@@ -9,36 +9,48 @@
     <style>
         .chat-container { height: calc(100vh - 160px); overflow-y: auto; scroll-behavior: smooth; }
         .user-msg { background: #003366; color: white; border-radius: 20px 20px 0 20px; align-self: flex-end; }
-        .ai-msg { background: white; color: #333; border-radius: 20px 20px 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); align-self: flex-start; }
+        .ai-msg { background: white; color: #333; border-radius: 20px 20px 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); align-self: flex-start; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        body { background: #f8fafc; }
     </style>
 </head>
-<body class="flex flex-col h-screen bg-gray-100">
+<body class="flex flex-col h-screen">
 
-    <header class="bg-[#003366] text-white p-4 shadow-lg flex justify-between items-center sticky top-0 z-50">
-        <div class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#003366] font-bold text-xl">S</div>
+    <header class="bg-[#003366] text-white p-5 shadow-lg flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#003366] font-extrabold text-2xl shadow-inner">S</div>
             <div>
-                <h1 class="text-lg font-bold leading-none">Smile Financial</h1>
-                <p class="text-[10px] opacity-80">Expert AI by Mohammad Aarif</p>
+                <h1 class="text-xl font-bold tracking-tight">Smile Financial Solution</h1>
+                <p class="text-[11px] opacity-90 uppercase tracking-widest font-semibold">Empowering Your Business</p>
             </div>
+        </div>
+        <div class="flex gap-4">
+            <i class="fas fa-shield-alt text-blue-300"></i>
+            <i class="fas fa-headset"></i>
         </div>
     </header>
 
+    <div class="flex overflow-x-auto p-3 gap-2 bg-white border-b border-gray-100 no-scrollbar">
+        <button onclick="sendQuickMsg('Check Loan Eligibility')" class="whitespace-nowrap bg-gray-50 hover:bg-blue-50 text-blue-900 px-5 py-2 rounded-lg text-xs font-bold border border-gray-200 transition">💰 LOAN SERVICES</button>
+        <button onclick="sendQuickMsg('Government Funding Schemes')" class="whitespace-nowrap bg-gray-50 hover:bg-green-50 text-green-800 px-5 py-2 rounded-lg text-xs font-bold border border-gray-200 transition">🏛️ GOVT FUNDING</button>
+        <button onclick="sendQuickMsg('New Business Setup Support')" class="whitespace-nowrap bg-gray-50 hover:bg-orange-50 text-orange-800 px-5 py-2 rounded-lg text-xs font-bold border border-gray-200 transition">🚀 BUSINESS SETUP</button>
+    </div>
+
     <main class="chat-container flex-1 p-4 flex flex-col gap-4" id="chat-box">
-        <div class="ai-msg p-4 max-w-[85%]">
-            <p class="text-xs font-bold text-blue-900 mb-1">Smile AI Assistant:</p>
-            नमस्ते! मैं Mohammad Aarif का AI Assistant हूँ। मैं Business Funding, PMEGP, Home Loans और Amazon Deals में आपकी मदद कर सकता हूँ। आप क्या जानना चाहते हैं?
+        <div class="ai-msg p-4 max-w-[88%] border-l-4 border-[#003366]">
+            <p class="text-[10px] font-bold text-blue-900 uppercase mb-2 tracking-wider">Smile Financial AI Assistant</p>
+            <p class="text-sm leading-relaxed">नमस्ते। <b>Smile Financial Solution</b> में आपका स्वागत है। हम Government Funding (PMEGP/MSME), Home Loans, LAP और Business Consultancy में विशेषज्ञ हैं। <br><br>मैं आपकी किस प्रकार सहायता कर सकता हूँ?</p>
         </div>
     </main>
 
-    <footer class="p-4 bg-white border-t border-gray-200">
-        <div class="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2">
-            <input type="text" id="user-input" placeholder="Ask Smile AI..." class="bg-transparent flex-1 outline-none text-gray-700 py-1">
-            <button onclick="sendMessage()" class="bg-[#003366] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-800 transition">
-                <i class="fas fa-paper-plane"></i>
+    <footer class="p-4 bg-white border-t border-gray-200 shadow-2xl">
+        <div class="flex items-center gap-2 bg-gray-100 rounded-2xl px-4 py-3 border border-gray-200">
+            <input type="text" id="user-input" placeholder="Type your query here..." class="bg-transparent flex-1 outline-none text-gray-700 text-sm font-medium">
+            <button onclick="sendMessage()" class="bg-[#003366] text-white w-10 h-10 rounded-xl flex items-center justify-center hover:scale-105 transition shadow-lg">
+                <i class="fas fa-paper-plane text-sm"></i>
             </button>
         </div>
+        <p class="text-[9px] text-center text-gray-400 mt-2 italic">Official AI Service of Smile Financial Solution</p>
     </footer>
 
     <script>
@@ -59,7 +71,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         contents: [{
-                            parts: [{ text: `You are Smile Financial Solution AI, created by Mohammad Aarif. You are an expert in Govt Funding (PMEGP/MSME), Loans (Home/LAP), and Business Consultancy. Reply in a professional, human-like manner. User says: ${text}` }]
+                            parts: [{ text: `You are the Official AI Assistant of 'Smile Financial Solution'. You never mention any personal names. You are an expert in Government Funding (PMEGP, MSME, Mudra), Loans (Home Loans, Loan Against Property), and Business Consultancy including Website/Chatbot development. Always provide professional and accurate financial advice. User query: ${text}` }]
                         }]
                     })
                 });
@@ -68,16 +80,21 @@
                 const aiReply = data.candidates[0].content.parts[0].text;
                 appendMessage(aiReply, 'ai');
             } catch (error) {
-                appendMessage("Maf kijiye, abhi system busy hai. Kripya thodi der baad koshish karein.", 'ai');
+                appendMessage("System is currently under maintenance. Please try again later.", 'ai');
             }
         }
 
         function appendMessage(text, sender) {
             const msgDiv = document.createElement('div');
-            msgDiv.className = sender === 'user' ? 'user-msg p-4 max-w-[85%]' : 'ai-msg p-4 max-w-[85%]';
-            msgDiv.innerHTML = `<p class="text-sm">${text}</p>`;
+            msgDiv.className = sender === 'user' ? 'user-msg p-4 max-w-[85%]' : 'ai-msg p-4 max-w-[88%] border-l-4 border-[#003366]';
+            msgDiv.innerHTML = `<p class="text-sm leading-relaxed">${text}</p>`;
             chatBox.appendChild(msgDiv);
             chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function sendQuickMsg(msg) {
+            userInput.value = msg;
+            sendMessage();
         }
 
         userInput.addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
