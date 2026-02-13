@@ -3,161 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smile Shopping - Mega Deals & Cashback</title>
-    <meta name="keywords" content="Amazon Deals, Best Laptop, Clothes, Shoes, Mobile Offers, Smile Shopping, Mohammad Aarif, Cashback, Finance">
-    
+    <title>Smile Financial Solution AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #003366; --amazon: #FF9900; --bg: #f1f2f4; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--bg); padding-bottom: 80px; }
-        
-        /* Professional Top Bar */
-        header { background: var(--primary); color: white; padding: 10px; position: sticky; top: 0; z-index: 1000; }
-        .search-container { background: white; border-radius: 5px; display: flex; padding: 5px; margin-top: 10px; }
-        .search-container input { border: none; flex: 1; padding: 8px; outline: none; font-size: 16px; }
-        
-        /* Moving Offer Ticker */
-        .ticker { background: #fff3cd; color: #856404; padding: 5px; font-weight: bold; font-size: 14px; text-align: center; }
-
-        /* Categories Bar */
-        .cat-bar { display: flex; overflow-x: auto; background: white; padding: 15px; gap: 20px; border-bottom: 1px solid #ddd; }
-        .cat-item { text-align: center; font-size: 12px; min-width: 60px; font-weight: bold; }
-        .cat-icon { width: 50px; height: 50px; background: #eee; border-radius: 50%; margin: auto; display: flex; align-items: center; justify-content: center; font-size: 24px; }
-
-        .container { padding: 10px; }
-
-        /* Banner Card */
-        .hero-banner { background: linear-gradient(to right, #003366, #0055aa); color: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .hero-banner h2 { margin: 0; font-size: 26px; }
-
-        /* Product Section */
-        .section-title { font-size: 22px; font-weight: bold; padding: 15px 5px; color: var(--primary); display: flex; justify-content: space-between; }
-        
-        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .p-card { background: white; border-radius: 10px; padding: 12px; position: relative; border: 1px solid #e0e0e0; }
-        .p-card img { width: 100%; height: 150px; object-fit: contain; }
-        .off-tag { position: absolute; top: 8px; left: 8px; background: #cc0000; color: white; font-size: 11px; font-weight: bold; padding: 3px 7px; border-radius: 4px; }
-        .p-card h3 { font-size: 15px; margin: 10px 0; height: 40px; overflow: hidden; color: #333; }
-        .price-box { display: flex; align-items: center; gap: 8px; }
-        .new-price { font-size: 20px; font-weight: bold; color: #b12704; }
-        .old-price { font-size: 14px; text-decoration: line-through; color: #777; }
-        
-        .cashback-badge { color: green; font-weight: bold; font-size: 13px; margin: 5px 0; }
-
-        .add-btn { background: var(--amazon); color: black; text-decoration: none; display: block; text-align: center; padding: 10px; border-radius: 25px; font-weight: bold; margin-top: 10px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-
-        /* Gromo Refer Banner */
-        .refer-earn { background: #fff; border-left: 5px solid var(--amazon); padding: 20px; margin: 25px 0; border-radius: 8px; }
-
-        /* Bottom Menu */
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 12px 0; border-top: 2px solid #eee; }
-        .nav-link { text-decoration: none; color: #555; font-size: 12px; text-align: center; }
+        .chat-container { height: calc(100vh - 160px); overflow-y: auto; scroll-behavior: smooth; }
+        .glass-morphism { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        body { background-color: #f0f2f5; }
+        .user-msg { background: #003366; color: white; border-radius: 20px 20px 0 20px; }
+        .ai-msg { background: white; color: #333; border-radius: 20px 20px 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
     </style>
 </head>
-<body>
+<body class="flex flex-col h-screen">
 
-<header>
-    <div style="font-size: 20px; font-weight: bold;">SMILE SHOPPING</div>
-    <div class="search-container">
-        <input type="text" placeholder="Search clothes, mobiles, shoes...">
-        <button style="border:none; background:none; font-size:20px;">🔍</button>
-    </div>
-</header>
-
-<div class="ticker">🚀 Flash Sale Live: Extra 10% Cashback on All Orders! 🚀</div>
-
-<div class="cat-bar">
-    <div class="cat-item"><div class="cat-icon">📱</div>Gadgets</div>
-    <div class="cat-item"><div class="cat-icon">👕</div>Fashion</div>
-    <div class="cat-item"><div class="cat-icon">👟</div>Shoes</div>
-    <div class="cat-item"><div class="cat-icon">🏠</div>Home</div>
-    <div class="cat-item"><div class="cat-icon">💰</div>Loans</div>
-</div>
-
-<div class="container">
-    
-    <div class="hero-banner">
-        <h2>Big Savings Day!</h2>
-        <p>Curated Deals by Mohammad Aarif</p>
-        <small>Amazon Authorized Partner</small>
-    </div>
-
-    <div class="section-header">
-        <span class="section-title">Latest Electronics</span>
-    </div>
-    <div class="product-grid">
-        <div class="p-card">
-            <span class="off-tag">40% OFF</span>
-            <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_UY218_.jpg">
-            <h3>Premium Business Laptop</h3>
-            <div class="price-box">
-                <span class="new-price">₹35,990</span>
-                <span class="old-price">₹52,000</span>
+    <header class="bg-[#003366] text-white p-4 shadow-lg flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center gap-2">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#003366] font-bold text-xl">S</div>
+            <div>
+                <h1 class="text-lg font-bold leading-none">Smile Financial</h1>
+                <p class="text-[10px] opacity-80">Solution by Mohammad Aarif</p>
             </div>
-            <div class="cashback-badge">₹1000 Extra Cashback</div>
-            <a href="https://www.amazon.in/s?k=laptop&tag=smileai24-21" class="add-btn">Add to Cart</a>
         </div>
-        <div class="p-card">
-            <span class="off-tag">25% OFF</span>
-            <img src="https://m.media-amazon.com/images/I/716fAVS39LL._AC_UY218_.jpg">
-            <h3>5G Power Smartphone</h3>
-            <div class="price-box">
-                <span class="new-price">₹18,499</span>
-                <span class="old-price">₹24,000</span>
-            </div>
-            <div class="cashback-badge">₹500 Extra Cashback</div>
-            <a href="https://www.amazon.in/s?k=5g+mobile&tag=smileai24-21" class="add-btn">Add to Cart</a>
+        <i class="fas fa-ellipsis-v"></i>
+    </header>
+
+    <div class="flex overflow-x-auto p-3 gap-2 bg-white border-b border-gray-200 no-scrollbar">
+        <button onclick="sendQuickMsg('Loan Eligibility Check')" class="whitespace-nowrap bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold border border-blue-200"><i class="fas fa-hand-holding-usd mr-1"></i> Loan Check</button>
+        <button onclick="sendQuickMsg('Govt Scheme Funding')" class="whitespace-nowrap bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold border border-green-200"><i class="fas fa-landmark mr-1"></i> Govt Funding</button>
+        <button onclick="window.open('https://www.amazon.in/s?tag=smileai24-21')" class="whitespace-nowrap bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold border border-orange-200"><i class="fab fa-amazon mr-1"></i> Shop Deals</button>
+        <button onclick="sendQuickMsg('LAP/Home Loan Query')" class="whitespace-nowrap bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold border border-purple-200"><i class="fas fa-home mr-1"></i> LAP/Home Loan</button>
+    </div>
+
+    <main class="chat-container flex-1 p-4 space-y-4" id="chat-box">
+        <div class="ai-msg p-4 max-w-[85%]">
+            <p class="text-sm font-bold text-blue-900 mb-1">Smile AI Assistant:</p>
+            नमस्ते मोहम्मद आरिफ जी की Smile Financial Solution में आपका स्वागत है। मैं आपकी Business Funding, Loan eligibility और Amazon Shopping में मदद कर सकता हूँ। आप क्या जानना चाहते हैं?
         </div>
-    </div>
+    </main>
 
-    <div class="refer-earn">
-        <h3 style="margin:0; color:var(--primary);">Refer & Earn ₹50,000/Month 💸</h3>
-        <p style="font-size:14px; color:#666;">Apne doston ko Smile Finance se Loan dilwayein aur commission payein.</p>
-        <a href="https://sales.gromo.in/gp-website/g/N736Ris-PUn_TvhMN1PlZ" style="color:var(--primary); font-weight:bold; text-decoration:none;">Join Partner Program →</a>
-    </div>
-
-    <div class="section-header">
-        <span class="section-title">Fashion & Lifestyle</span>
-    </div>
-    <div class="product-grid">
-        <div class="p-card">
-            <span class="off-tag">70% OFF</span>
-            <img src="https://m.media-amazon.com/images/I/71oX6uX5XvL._AC_UL320_.jpg">
-            <h3>Branded Sports Shoes</h3>
-            <div class="price-box">
-                <span class="new-price">₹1,299</span>
-                <span class="old-price">₹3,999</span>
-            </div>
-            <a href="https://www.amazon.in/s?k=mens+shoes&tag=smileai24-21" class="add-btn">View Offer</a>
+    <footer class="p-4 bg-white border-t border-gray-200 glass-morphism">
+        <div class="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2">
+            <label for="file-upload" class="cursor-pointer text-gray-500 hover:text-blue-600">
+                <i class="fas fa-paperclip text-xl"></i>
+                <input type="file" id="file-upload" class="hidden" accept=".pdf,.doc,.docx">
+            </label>
+            <input type="text" id="user-input" placeholder="Ask Smile AI..." class="bg-transparent flex-1 outline-none text-gray-700 py-1">
+            <button onclick="startVoice()" class="text-gray-500 hover:text-red-500">
+                <i class="fas fa-microphone text-xl"></i>
+            </button>
+            <button onclick="sendMessage()" class="bg-[#003366] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-800 transition">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
-        <div class="p-card">
-            <span class="off-tag">55% OFF</span>
-            <img src="https://m.media-amazon.com/images/I/61-v8f9-46L._AC_UL320_.jpg">
-            <h3>Premium Men's Wear</h3>
-            <div class="price-box">
-                <span class="new-price">₹799</span>
-                <span class="old-price">₹1,599</span>
-            </div>
-            <a href="https://www.amazon.in/s?k=mens+clothing&tag=smileai24-21" class="add-btn">View Offer</a>
-        </div>
-    </div>
+    </footer>
 
-    <div class="section-header">
-        <span class="section-title">New Arrivals</span>
-    </div>
-    <div class="p-card" style="width:100%; margin-bottom:20px;">
-        <img src="https://m.media-amazon.com/images/I/61O5X96S7sL._AC_UY218_.jpg" style="height:120px;">
-        <h3 style="text-align:center;">Smart Gadgets & Accessories</h3>
-        <a href="https://www.amazon.in/s?k=smart+gadgets&tag=smileai24-21" class="add-btn">Shop All Gadgets</a>
-    </div>
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
 
-</div>
+        function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+            
+            appendMessage(text, 'user');
+            userInput.value = '';
+            
+            // Simulating AI Reply (Yahan aapka Gemini API connect hoga)
+            setTimeout(() => {
+                appendMessage("Aarif ji, main aapki is query par kaam kar raha hoon. Kya aap apna Mobile Number share karenge taaki hum details bhej sakein?", 'ai');
+            }, 1000);
+        }
 
-<div class="bottom-nav">
-    <a href="#" class="nav-link">🏠<br>Home</a>
-    <a href="https://sales.gromo.in/gp-website/g/N736Ris-PUn_TvhMN1PlZ" class="nav-link">💰<br>Loans</a>
-    <a href="https://www.amazon.in/s?k=best+offers&tag=smileai24-21" class="nav-link">🛍️<br>Shop</a>
-    <a href="#" class="nav-link">👤<br>Account</a>
-</div>
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = sender === 'user' ? 'user-msg p-4 max-w-[85%] ml-auto' : 'ai-msg p-4 max-w-[85%]';
+            msgDiv.innerHTML = `<p class="text-sm">${text}</p>`;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
 
+        function sendQuickMsg(msg) {
+            userInput.value = msg;
+            sendMessage();
+        }
+
+        function startVoice() {
+            alert("Voice Recognition Starting... (System ready for API)");
+        }
+    </script>
 </body>
 </html>
